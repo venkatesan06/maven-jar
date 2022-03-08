@@ -1,5 +1,7 @@
-FROM openjdk:8-jre-nanoserver
+FROM openjdk
 
-COPY target/*.jar App.jar
+COPY target/*.jar /usr/src/myapp/App.jar
+
+WORKDIR /usr/src/myapp
 
 CMD java -jar App.jar
