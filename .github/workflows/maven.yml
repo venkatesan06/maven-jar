@@ -22,4 +22,4 @@ jobs:
     - name: Build with Maven
       run: mvn clean package
     - name: Build with docker
-      run: docker build -t "$docker-image" .
+      run: docker build -t venkatesan .
