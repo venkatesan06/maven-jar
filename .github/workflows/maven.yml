@@ -8,9 +8,9 @@ on:
     branches: [ main ]
 jobs:
   build-jar-and-image:
-
     runs-on: ubuntu-latest
-
+    env:
+      docker-image: venkatesan06/git-action:java-v2 
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 11
@@ -22,4 +22,4 @@ jobs:
     - name: Build with Maven
       run: mvn clean package
     - name: Build with docker
-      run: docker build -t venkatesan:1.0 .
+      run: docker build -t $docker-image .
