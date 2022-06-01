@@ -23,3 +23,7 @@ jobs:
       run: mvn clean package
     - name: Build with docker
       run: docker build -t ${{ env.docker-image }} .
+    - name: Push with docker
+      run: |
+        docker login -u{{ secrets.DOCKER_UN }} -p{{ secrets.DOCKER_PWD }}
+        docker push ${{ env.docker-image }} 
