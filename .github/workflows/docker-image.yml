@@ -15,4 +15,8 @@ jobs:
     - name: Build jar
       run: mvn clean package
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag venkatesan06/my-app:1.0.0
+      run: docker build -t venkatesan06/my-app:v1 .
+    - name: Push the Docker image
+      run: |
+        docker login -u venkatesan06 -p venkatesan0604
+        docker push venkatesan06/my-app:v1
